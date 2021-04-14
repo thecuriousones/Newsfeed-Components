@@ -114,3 +114,131 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(object) {
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const date = document.createElement('p');
+  const firstPar = document.createElement('p');
+  const secondPar = document.createElement('p');
+  const thirdPar = document.createElement('p');
+  const expand = document.createElement('span');
+
+  article.appendChild(articleTitle);
+  article.appendChild(date);
+  article.appendChild(firstPar);
+  article.appendChild(secondPar);
+  article.appendChild(thirdPar);
+  article.appendChild(expand);
+
+  article.classList.add('article');
+  date.classList.add('date');
+  firstPar.classList.add('firstParagraph');
+  secondPar.classList.add('secondParagraph');
+  thirdPar.classList.add('thirdParagraph');
+  expand.classList.add('expandButton');
+
+  articleTitle.textContent = object.title;
+  date.textContent = object.date;
+  firstPar.textContent = object.firstParagraph;
+  secondPar.textContent = object.secondParagraph;
+  thirdPar.textContent = object.thirdParagraph;
+  expand.textContent = '+'
+
+  expand.addEventListener('click', () => {
+    article.classList.toggle('article-open')
+  })
+
+  return article
+}
+
+const articleFive = {
+    title: '7 rings',
+    date: 'Jan 18th, 2019',
+    firstParagraph: 
+    `Yeah, breakfast at Tiffany's and bottles of bubbles
+    Girls with tattoos who like getting in trouble
+    Lashes and diamonds, ATM machines
+    Buy myself all of my favorite things (yeah)`,
+
+    secondParagraph: 
+    `Been through some bad shit, I should be a sad bitch
+    Who woulda thought it'd turn me to a savage?
+    Rather be tied up with calls and not strings
+    Write my own checks like I write what I sing, yeah (yeah) `,
+
+    thirdParagraph: 
+    `My wrist, stop watchin', my neck is flossy
+    Make big deposits, my gloss is poppin'
+    You like my hair? Gee, thanks, just bought it
+    I see it, I like it, I want it, I got it (yeah)`
+
+}
+
+const articleSix = {
+    title: 'Needy',
+    date: 'Feb 18th, 2019',
+    firstParagraph: 
+    `If you take too long to hit me back
+    I can't promise you how I'll react
+    But all I can say
+    Is at least I'll wait for you
+    Lately, I've been on a roller coaster
+    Tryna get a hold of my emotions
+    But all that I know is I need you close `,
+
+    secondParagraph: 
+    `And I'ma scream and shout for what I love
+    Passionate but I don't give no fucks
+    I admit that I'm a lil' messed up
+    But I can hide it when I'm all dressed up
+    I'm obsessive and I love too hard
+    Good at overthinking with my heart
+    How you even think it got this far?
+    This far `,
+
+    thirdParagraph: 
+    `And I can be needy, way too damn needy
+    I can be needy, tell me how good it feels to be needed
+    I can be needy, so hard to please me
+    I know it feels so good to be needed`
+
+}
+
+const articleSeven = {
+    title: 'Positions',
+    date: 'Oct 20th, 2020',
+    firstParagraph: 
+    `Boy, I'm tryna meet your mama on a Sunday
+    Then make a lotta love on a Monday (ah-ah)
+    Never need no (no), no one else, babe
+    'Cause I'll be`,
+
+    secondParagraph: 
+    `Switchin' the positions for you
+    Cookin' in the kitchen and I'm in the bedroom
+    I'm in the Olympics, way I'm jumpin' through hoops
+    Know my love infinite, nothin' I wouldn't do
+    That I won't do, switchin' for you `,
+
+    thirdParagraph: 
+    `Perfect, perfect
+    You're too good to be true (you're too good to be true)
+    But I get tired of runnin'
+    Fuck it, now I'm runnin' with you (wit' you)`
+
+}
+
+data.push(articleFive, articleSix, articleSeven);
+
+const articles = document.querySelector('.articles')
+data.forEach(item => {
+  const newArticle = articleMaker(item)
+  articles.appendChild(newArticle)
+})
+
+console.log(articleMaker(data))
+
+
+
+
